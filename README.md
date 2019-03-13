@@ -12,14 +12,14 @@ The game will feature a changable difficulty level to challenger players of all 
 The achievements and player rankings will take into account the difficulty level of the games played.
 
 
-The following is the initial list of features, as entered in pivotal tracker:
-**1) User can play against other players.**
-**2) User can see where they and other players are physically located.**
-**3) Users can see high scores.**
-**4) Users can submit their own custom questions.**
-**5) Users can play on an Andriod or IOS phone.**
-**6) Users can play on any desktop browser.**
-**7) Users accumulate their winnings as play money.**
-**8) Users can message other players between and during games through the app.**
-**9) Users can unlock achievements for continued play.**
+The following is the initial list of features, as entered in pivotal tracker:</br>
+**1) User can play against other players.**</br>
+**2) User can see where they and other players are physically located.**</br>
+**3) Users can see high scores.**</br>
+**4) Users can submit their own custom questions.**</br>
+**5) Users can play on an Andriod or IOS phone.**</br>
+**6) Users can play on any desktop browser.**</br>
+**7) Users accumulate their winnings as play money.**</br>
+**8) Users can message other players between and during games through the app.**</br>
+**9) Users can unlock achievements for continued play.**</br>
 **10) Users can choose the difficulty level.**
