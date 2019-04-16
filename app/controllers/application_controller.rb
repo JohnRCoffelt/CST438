@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
-    before_action :authorize
-    protected
-    def authorize
-        unless User.find_by(id: session[:user_id])
-            redirect_to login_url, notice:"Perhaps you still need to sign up?"
-        end
-    end
+  
+  before_action :authenticate_user!
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :username])
+  end
 end
