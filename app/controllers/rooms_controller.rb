@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   # @rooms = all rooms
   # @room = current room when applicable
   before_action :load_entities
+  $usersReady = []
 
   def index
     @rooms = Room.all
@@ -29,7 +30,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    Room.destroy(room)
+    Room.destroy(@room.id)
     redirect_to rooms_path
   end
   
@@ -50,6 +51,17 @@ class RoomsController < ApplicationController
         end
       end
     end
+  end
+  
+  def playerReady
+    @room = Room.find(params[:room])
+    if $usersReady[@room.id] == nil
+      $usersReady[@room.id] = []
+    end
+    if !$usersReady[@room.id].include?(current_user.username)
+      $usersReady[@room.id].push(current_user.username)
+    end
+    RoomChannel.broadcast_to @room,  command: "READY", usersReady: $usersReady[@room.id]
   end
 
   def update

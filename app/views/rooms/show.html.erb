@@ -11,17 +11,32 @@
 </h1>
 <p data-role="display-raw-data"></p>
 <div style="height:5vh;"></div>
+<p>Players Ready:</p>
+
+<p data-role="display-ready-players">
+<% $usersReady[@room.id].each do |player| %>
+<%= player %><br />
+<% end %> </p>
+
+
+<div style="height:5vh;"></div>
+
 <p data-role="display-timer">0</p>
 
 </div>
 <div style="text-align:center;">
-  
-  <div class="mt-3">
   <%= link_to buzzer_rooms_path(:room => @room.id), class: 'btn btn-danger', remote: true do %>
     BUZZER
   <% end %>
   
 </div>
+<div style="text-align:left;">
+  <%= link_to playerReady_rooms_path(:room => @room.id), class: 'btn btn-success', remote: true do %>
+    READY
+  <% end %>
+</div>
+
+
 <div style="height:5vh;"></div>
 
     <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">

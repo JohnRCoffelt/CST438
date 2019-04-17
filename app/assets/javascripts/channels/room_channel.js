@@ -5,6 +5,7 @@ $(function() {
         messageTemplate = $('[data-role="message-template"]');
         dataArea = $('[data-role="display-raw-data"]');
         timerArea = $('[data-role="display-timer"]');
+        playersReadyArea = $('[data-role="display-ready-players"]');
 
     $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000)        
 
@@ -26,6 +27,13 @@ $(function() {
           }
           if (data.timer !=null){
           timerArea.text(JSON.stringify(data.timer));
+          }
+          if (data.usersReady !=null){
+          var players = ''
+          for (var i = 0; i < data.usersReady.length; i++){
+            players = players + data.usersReady[i] + '<br/>'
+          }
+          playersReadyArea.html(players);
           }
           dataArea.text(JSON.stringify(data));
           console.log(data);
